@@ -1,6 +1,7 @@
 import L from "leaflet"; // Am Anfang der Datei ergänzen
 
 
+
 // ...existing code...
 type Question = { q: string; answer: string, audio?: string };
 
@@ -17,6 +18,13 @@ type Stage = {
   pantomimeTerms?: string[]; // neu: Begriffe für Pantomime-Runde
   audio?: string; // optional: Audio-Datei für Quiz
 };
+
+const Dom1 = "/assets/bilder/Dom1.jpg";
+const Dom2 = "/assets/bilder/Dom2.jpg";
+const Dom3 = "/assets/bilder/Dom3.jpg";
+const Dom4 = "/assets/bilder/Dom4.jpg";
+const Dom5 = "/assets/bilder/Dom5.jpg";
+const Brief = "/assets/bilder/brief.png";
 
 const stages: Record<string, Stage> = {
   fragerunde1: {
@@ -37,11 +45,11 @@ const stages: Record<string, Stage> = {
     title: "Rätsel 1 – Der Gießer",
     kind: "puzzle",
     images: [
-      "/../assets/bilder/Dom1.jpg",
-      "/../assets/bilder/Dom2.jpg",
-      "/../assets/bilder/Dom3.jpg",
-      "/../assets/bilder/Dom4.jpg",
-      "/../assets/bilder/Dom5.jpg"
+      Dom1,
+      Dom2,
+      Dom3,
+      Dom4,
+      Dom5
     ],
     questions: [
       { q: "Welcher Baum verbirgt sich hinter dem Gießer?", answer: "linde" }
@@ -103,7 +111,7 @@ const stages: Record<string, Stage> = {
     kind: "puzzle",
     code: "37",
     codeText: "Notiert euch diese Zahl gut.",
-    images: ["../assets/bilder/brief.png"], // Pfad zum Bild, z.B. Brief
+    images: [Brief], // Pfad zum Bild, z.B. Brief
     questions: [{ q: "Wo geht es als nächstes hin?", answer: "Picassoplatz" }],
     answer: "picassoplatz",
   },
@@ -114,14 +122,14 @@ const stages: Record<string, Stage> = {
     code: "50",
     codeText: "Ihr erhaltet die letzte Zahl für eure Sammlung.",
     questions: [
-      { q: "Wie heißt der Song?", answer: "Männer", audio: "../assets/songs/maenner.mp3" },
-      { q: "Wie heißt der Song?", answer: "Immer auf mich zählen", audio: "../assets/songs/immer_auf_mich_zaehlen.mp3" },
-      { q: "Wie heißt der Song?", answer: "Mr. Brightside", audio: "/../assets/songs/Mr_Brightside.mp3" },
-      { q: "Wie heißt der Song?", answer: "Fix You", audio: "../assets/songs/fix_you.mp3" },    
-      { q: "Wie heißt der Song?", answer: "New York, Rio, Rosenheim", audio: "../assets/songs/new_york_rio_rosenheim.mp3" },
-      { q: "Wie heißt der Song?", answer: "Alles aus Liebe", audio: "../assets/songs/alles_aus_liebe.mp3"},
-      { q: "Wie heißt der Song?", answer: "Spinner", audio: "../assets/songs/spinner.mp3" },    
-      { q: "Wie heißt der Song?", answer: "Dont Speak", audio: "../assets/songs/dont_speak.mp3" },    
+      { q: "Wie heißt der Song?", answer: "Männer", audio: "/assets/songs/maenner.mp3" },
+      { q: "Wie heißt der Song?", answer: "Immer auf mich zählen", audio: "/assets/songs/immer_auf_mich_zaehlen.mp3" },
+      { q: "Wie heißt der Song?", answer: "Mr. Brightside", audio: "/assets/songs/Mr_Brightside.mp3" },
+      { q: "Wie heißt der Song?", answer: "Fix You", audio: "/assets/songs/fix_you.mp3" },    
+      { q: "Wie heißt der Song?", answer: "New York, Rio, Rosenheim", audio: "/assets/songs/new_york_rio_rosenheim.mp3" },
+      { q: "Wie heißt der Song?", answer: "Alles aus Liebe", audio: "/assets/songs/alles_aus_liebe.mp3"},
+      { q: "Wie heißt der Song?", answer: "Spinner", audio: "/assets/songs/spinner.mp3" },    
+      { q: "Wie heißt der Song?", answer: "Dont Speak", audio: "/assets/songs/dont_speak.mp3" },    
     ],
     tips: [
       "Ein deutscher Musiker besingt hier sehr ironisch die Eigenschaften eines bestimmten Geschlechts.",
