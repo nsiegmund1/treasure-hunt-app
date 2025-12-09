@@ -534,3 +534,16 @@ button, .btn-link { min-height:44px; padding:10px 14px; font-size:16px; touch-ac
   outline: none;
   background: #f6efe6;
 }
+
+.tip-row {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Links bündig */
+  margin-top: 8px;
+  width: 100%;            /* Nimmt die volle Breite ein */
+}
+
+.tip-btn {
+  margin-bottom: 4px;
+  align-self: flex-start; /* Links bündig */
+}

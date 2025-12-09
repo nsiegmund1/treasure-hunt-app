@@ -17,6 +17,7 @@ type Stage = {
   tips?: string[]; // optionale Tipps für Quiz
   pantomimeTerms?: string[]; // neu: Begriffe für Pantomime-Runde
   audio?: string; // optional: Audio-Datei für Quiz
+  nextStepInfo?: string; // optional: Info zum nächsten Schritt
 };
 
 const Dom1 = "/assets/bilder/Dom1.jpg";
@@ -31,14 +32,15 @@ const stages: Record<string, Stage> = {
     title: "Fragerunde 1 – Die leichten 5",
     kind: "quiz",
     code: "51",
-    codeText: "Ihr erhaltet die erste Zahl. Notiert euch diese sorgfältig.",
+    codeText: "Ihr erhaltet die erste Zahl. Notiert euch diese auf der Lösungsseite im vorgesehenen Feld.",
     questions: [
       { q: "Wann habt ihr euch verlobt?", answer: "08.08.1999" },
       { q: "Wie hat Opa Willi von eurer Verlobung erfahren?", answer: "Zeitung" },
       { q: "Wie viele Kilometer läuft Ronja, wenn sie ein mal die Promenade umrundet?", answer: "4,5" },
       { q: "Was für eine Hochzeitstorte durfte Carmen an eurer Hochzeit verspeisen?", answer: "Erdbeertorte" },
-      { q: "Ronja ist ihr Handy in den Aasee gefallen, upsi. Wie tief muss Jösti tauchen, um es wieder zu holen?", answer: "2" },
+      { q: "Ronja ist ihr Handy in den Aasee gefallen, upsi. Wie tief muss Jösti tauchen, um es wieder zu holen?", answer: "2|2m|2 Meter" },
     ],
+    nextStepInfo: "Begebt euch als nächstes zum Sankt-Paulus-Dom. Geht über den Spiekerhof an der Gasse direkt an der Aa entlang. Dort wartet das nächste Rätsel auf euch. Seid ihr dort angekommen, blättert im Buch um.",
   },
 
   raetsel1: {
@@ -56,25 +58,27 @@ const stages: Record<string, Stage> = {
     ],
     answer: "linde",
     code: "57",
-    codeText: "Notiert euch auch diese Zahl.",
+    codeText: "Damit erhaltet ihr eine weitere Zahl. Notiert sie auf der Lösungsseite.",
     tips: [
       "Tipp 1: Schuat beim Grafen vorbei, vielleicht kann er euch helfen.",
       "Tipp 2: Wie Antwort steht wortwörtlich zu Füßen.",
-    ]
-  },
+    ],
+    nextStepInfo: "Euer nächstes Ziel ist der Rosenplatz. Dort wartet die nächste Fragerunde auf euch.",
+},
 
   fragerunde2: {
     title: "Fragerunde 2 – Am Rosenplatz",
     kind: "quiz",
     code: "44",
-    codeText: "Merkt euch diese Zahl, sie hilft euch bestimmt mal weiter.",
+    codeText: "Notiert euch diese Zahl auf der Lösungsseite im Feld. Ihr werdet sie später brauchen.",
     questions: [
-      { q: "Ach ja, den besten kumpel zu fragen, ob man sein trauzeuge sein möchte, das macht man nur einmal im leben (hoffentlich). Apropos, wie wurde gerrit eigentlich gefragt?", answer: "" },
+      { q: "Ach ja, den besten kumpel zu fragen, ob man sein trauzeuge sein möchte, das macht man nur einmal im leben (hoffentlich). Apropos, wie wurde gerrit eigentlich gefragt?", answer: "???" },
       { q: "In der ersten Januar-Woche wurde Ronja stets zu Tante Carmen ausquartiert. Aber warum?", answer: "skifahren|ski fahren|ski|urlaub" },
-      { q: "Welche große Schriftstellerin lebte und studierte in Münster?", answer: "Annette von Drüste-Hülshoff" },
+      { q: "Welche große Schriftstellerin lebte und studierte in Münster?", answer: "Annette von Droste-Hülshoff" },
       { q: "Sogar eine eigene Sprache hat Münster, <i>Masematte</i>. Die sollte man als echter Münsterraner dialektfrei sprechen. Na, was heißt “Bier” auf masemattisch? ", answer: "Bäsken" },
       { q: "Die gemeine Schwägerin in Spe hatte einen ganz speziellen Spitznamen für Christoph. Jösti, weißt du den noch, oder hast du den schon verdrängt?", answer: "Knoblauchzehe" },
     ],
+    nextStepInfo: "Begebt euch als nächstes zum Barock-Schloss von Münster. Dort wartet das nächste Rätsel auf euch. Seid ihr dort angekommen, blättert im Buch um.",
   },
 
   raetsel2: {
@@ -86,6 +90,7 @@ const stages: Record<string, Stage> = {
     pantomimeTerms: ["Ski fahren auf dem Anhänger", "Hochzeitstorte anschneiden", "City-Roller fahren", "Hochzeitstanz"],
     placeholder:
       "Klicke auf die Karten, um die umzudrehen und den Begriff sichtbar zu machen. Viel Spaß beim Pantomime-Spielen!",
+    nextStepInfo: "Das LWL-Museum wartet auf euch. Begebt euch dort hin. Doch erst ist Zeit für ein Gruppenfoto. Der Ort ist dafür perfekt geeignet.",
   },
 
   fragerunde3: {
@@ -98,12 +103,13 @@ const stages: Record<string, Stage> = {
       { q: "8 oder doch 12? Wie viele glocken hängen im Turm des sankt-Paulus Doms?", answer: "10" },
       { q: "Wie heißt die Kulinarische Spezialität, die typisch für das Münsterland ist?", answer: "Töttchen" },
       { q: "Welche drei Charaktereigenschaften hat Christoph von Astrid gelernt? ", answer: "weinen, gefühle zeigen, offenheit|vor anderen weinen, gefühle äußern, selbstbewusstsein|vor anderen weinen, gefühle äußern, offenheit" },
-      { q: "Was Hat Niklas über den Burrata gedacht, als er ihn das erste mal bei uns gegessen hat?", answer: "er ist schlecht|schlecht|verschimmelt" },
+      { q: "Was Hat Niklas über den Burrata gedacht, als er ihn das erste mal bei uns gegessen hat?", answer: "er ist schlecht|schlecht|verschimmelt|schimmelig|abgelaufen" },
     ],
     tips: [
       "Tipp 1: Schuat beim Grafen vorbei, vielleicht kann er euch helfen.",
       "Tipp 2: Wie Antwort steht wortwörtlich zu Füßen.",
-    ]
+    ],
+    nextStepInfo: "Euer nächstes Ziel gilt es nun selber heruaszufinden. Viel Erfolg dabei! Blättert im Buch um.",
   },
 
   raetsel3: {
@@ -114,6 +120,7 @@ const stages: Record<string, Stage> = {
     images: [Brief], // Pfad zum Bild, z.B. Brief
     questions: [{ q: "Wo geht es als nächstes hin?", answer: "Picassoplatz" }],
     answer: "picassoplatz",
+    nextStepInfo: "Ihr habt den nächsten Ort gefunden! Begebt euch also zum Picassoplatz." ,
   },
 
   fragerunde4: {
@@ -140,7 +147,8 @@ const stages: Record<string, Stage> = {
       "Eine der bekanntesten deutschen Punkbands erzählt hier eine tragische Liebesgeschichte.",
       "Ein Song darüber, mutig zu sein und an seine Träume zu glauben – egal was andere sagen.",
       "Ein Herzschmerz-Hit der 90er mit Gwen Stefani als Sängerin, der von einer zerbrechenden Beziehung handelt.",
-    ]
+    ],
+    nextStepInfo: "Das historische Rathaus von Münster ist euer nächstes Ziel. Begebt euch für das letzte Rätsel dorthin.",
   },
 
   raetsel4: {
@@ -151,7 +159,12 @@ const stages: Record<string, Stage> = {
     codeText: "Notiert euch diese Zahl gut.",
     questions: [{ q: "Welche Summe verbirgt sich hinter der Ruthe?", answer: "8" }],
     answer: "8",
+    nextStepInfo: "Der Schatz ist zum Greifen nah! Nutzt die gefundenen Zahlen, um ihn zu finden.",
+    tips: [
+      "Seid ihr mal um das Rathaus gelaufen und habt euch näher umgeschaut?",
+    ],
   },
+
 
   finale: {
     title: "Finale – Der Schatz zum greifen nah",
@@ -176,22 +189,6 @@ function getStageId(): string {
   return (url.searchParams.get("stage") || "fragerunde1") as string;
 }
 
-/*
-function makeStageHref(stageId: string) {
-  // relative link zur gleichen Seite mit query param ?stage=...
-  return `?stage=${encodeURIComponent(stageId)}`;
-}
-
-function showTip(stageId: string, tipIdx: number) {
-  const box = document.getElementById(`tips-box-${stageId}`);
-  if (!box) return;
-  const stage = stages[stageId];
-  if (!stage || !stage.tips || tipIdx < 0 || tipIdx >= stage.tips.length) {
-    box.textContent = "";
-    return;
-  }
-  box.textContent = stage.tips[tipIdx];
-}*/
 
 
 // neue Hilfsfunktion: flexible Antwortprüfung
@@ -211,7 +208,7 @@ function isCorrectAnswer(userValue: string, correct: string): boolean {
 }
 
 
-
+// Antwort prüfen
 function checkAnswer(index: number, correct: string) {
   const ans = document.getElementById(`q${index}`) as HTMLInputElement;
   const fb = document.getElementById(`fb${index}`)!;
@@ -227,7 +224,7 @@ function checkAnswer(index: number, correct: string) {
 
 
 
-
+// Quiz lösen
 function solveQuiz(stageId: string) {
   const stage = stages[stageId];
   if (!stage || !stage.questions) return;
@@ -239,10 +236,13 @@ function solveQuiz(stageId: string) {
   const result = document.getElementById("result")!;
   result.innerHTML = "";
   if (allCorrect) {
-    const code = stage.code ? `<div class="code">${stage.code}</div>` : "";
     const txt = stage.codeText ? `<div class="codetext">${stage.codeText}</div>` : "";
+    const code = stage.code ? `<div class="code">${stage.code}</div>` : "";
+    const next = stage.nextStepInfo ? `<div class="nextstep">${stage.nextStepInfo}</div>` : "";
+
+
     result.innerHTML = `<div class="codebox success">
-      🎉 Alle Antworten sind korrekt! ${code}${txt}
+      🎉 Ihr habt die Aufgabe erfolgreich erledigt. Sehr gut! ${txt}${code} <br/> 🧭 ${next}
     </div>`;
   } else {
     result.innerHTML = `<div class="codebox error">Nicht alle Antworten sind korrekt. Überprüfe die Antworten.</div>`;
@@ -270,7 +270,6 @@ function showPuzzleImage(stageId: string, idx: number) {
   thumbs.forEach((t, i) => t.classList.toggle("active", i === idx));
 }
 
-// ...existing code...
 function checkPuzzleAnswer(stageId: string) {
   const stage = stages[stageId];
   const input = document.getElementById(`puzzle-answer-${stageId}`) as HTMLInputElement | null;
@@ -281,9 +280,14 @@ function checkPuzzleAnswer(stageId: string) {
     return;
   }
   if (normalize(input.value) === normalize(stage.answer)) {
-    const code = stage.code ? `<div class="code">${stage.code}</div>` : "";
+    
     const txt = stage.codeText ? `<div class="codetext">${stage.codeText}</div>` : "";
-    result.innerHTML = `<div class="codebox success">🎉 Richtig! ${code}${txt}</div>`;
+    const code = stage.code ? `<div class="code">${stage.code}</div>` : "";
+    const next = stage.nextStepInfo ? `<div class="nextstep">${stage.nextStepInfo}</div>` : "";
+
+    result.innerHTML = `<div class="codebox success">
+      🎉 Ihr habt die Aufgabe erfolgreich erledigt. Sehr gut! ${txt} ${code} <br/><br/> 🧭 <b> Wie es weiter geht</b> ${next}
+    </div>`;
 
     // Finale: Koordinaten-Bereich direkt anzeigen
     if (stageId === "finale" && !document.getElementById("coord-area")) {
@@ -361,9 +365,9 @@ function checkPuzzleAnswer(stageId: string) {
             }).addTo(map);
 
             setTimeout(() => {
-              map.flyTo([lat, lon], 19, { animate: true, duration: 5 });
+              map.flyTo([lat, lon], 18, { animate: true, duration: 5 });
               L.marker([lat, lon]).addTo(map)
-                .bindPopup("Schatz-Standort")
+                .bindPopup("X markiert den Schatz!")
                 .openPopup();
             }, 300);
           }, 100);
@@ -377,7 +381,7 @@ function checkPuzzleAnswer(stageId: string) {
 
 function renderTeamsArea() {
   // Beispiel-Namen, passe nach Bedarf an!
-  const names = ["Carmen", "Gerrit", "Moni", "Johannes", "Matthias J.", "Beata", "Matthias H.", "Katarzyna"];
+  const names = ["Carmen", "Gerrit", "Moni", "Johannes", "Matthias J.", "Beata", "Matthias H.", "Katarzyna", "Annette"];
   const teamsDiv = document.createElement("div");
   teamsDiv.className = "teams-area";
   teamsDiv.innerHTML = `
@@ -677,7 +681,9 @@ function renderStage(stageId: string) {
           const result = document.getElementById("result")!;
           const codeHtml = stage.code ? `<div class="code">${stage.code}</div>` : "";
           const txtHtml = stage.codeText ? `<div class="codetext">${stage.codeText}</div>` : "";
-          result.innerHTML = `<div class="codebox success">🎉 Du hast ${n} Begriff(e) erraten! ${codeHtml}${txtHtml}</div>`;
+          const next = stage.nextStepInfo ? `<div class="nextstep">${stage.nextStepInfo}</div>` : "";
+
+          result.innerHTML = `<div class="codebox success">🎉 Du hast ${n} Begriff(e) erraten! ${txtHtml}${codeHtml} <br/> ${next}</div>`;
         });
         btnRow.appendChild(b);
       });
@@ -899,6 +905,8 @@ if (stageId === "raetsel4") {
   input.id = "puzzle-answer-raetsel4";
   input.placeholder = "Antwort";
 
+  
+
   const checkBtn = document.createElement("button");
   checkBtn.textContent = "Prüfen";
   checkBtn.addEventListener("click", () => checkPuzzleAnswer(stageId));
@@ -907,12 +915,35 @@ if (stageId === "raetsel4") {
   row.appendChild(input);
   row.appendChild(checkBtn);
 
+  // Tipp-Bereich ergänzen
+  const tipRow = document.createElement("div");
+  tipRow.className = "tip-row";
+  tipRow.style.marginTop = "8px";
+
+  const tipBtn = document.createElement("button");
+  tipBtn.className = "tip-btn";
+  tipBtn.textContent = "Tipp";
+
+  const tipText = document.createElement("div");
+  tipText.className = "tip-text";
+  tipText.style.display = "none";
+
+  tipBtn.addEventListener("click", () => {
+    tipText.innerHTML = stage.tips?.[0] || "";
+    tipText.style.display = tipText.style.display === "none" ? "block" : "none";
+  });
+
+  tipRow.appendChild(tipBtn);
+  tipRow.appendChild(tipText);
+
   p.appendChild(row);
+  p.appendChild(tipRow);
+
 
   content.appendChild(p);
 }
 
-// ...existing code...
+// Finale
 if (stageId === "finale") {
   const p = document.createElement("div");
   p.className = "puzzle";
